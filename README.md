@@ -131,7 +131,7 @@ GROUP BY Alunos.ra, Alunos.nome, Alunos.sobre_nome;
 end $
 delimiter ;
 ```
-### resultado:
+### Resultado:
 ![alunos_cursos_prof](alunos_cursos_prof.png)
 
 # Código
