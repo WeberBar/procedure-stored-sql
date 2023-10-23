@@ -41,3 +41,33 @@ DELIMITER ;
 
 ### Resultado:
 ![alunos](alunos.png)
+
+### Mostrar alunos e cursos que frequentam
+```sql
+-- cria um metodo que mostra os alunos e os cursos que eles frequentam
+delimiter $
+create procedure mostrar_alunos_cursos()
+begin
+-- Seleciona os seguintes campos da tabela `Alunos`:
+-- [] RA
+-- [] Nome
+-- [] Sobrenome
+-- [] Uma lista de nomes de cursos
+
+select Alunos.ra as 'RA',
+Alunos.nome as 'Nome',
+Alunos.sobre_nome as 'Sobrenome',
+group_concat(Cursos.nome) as 'Cursos'
+
+-- faz a junção da tabela alunos com cursos
+from Alunos
+join Alunos_has_cursos
+ on Alunos.id = Alunos_has_cursos.Alunos_id
+ join Cursos on Cursos.idCursos = Alunos_has_cursos.Cursos_idCursos
+
+group by Alunos.ra, Alunos.nome, Alunos.sobre_nome;
+
+ end$
+ delimiter ;
+```
+![alunos_cursos](alunos_cursos.png)
