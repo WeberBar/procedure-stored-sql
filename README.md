@@ -70,6 +70,7 @@ group by Alunos.ra, Alunos.nome, Alunos.sobre_nome;
  end$
  delimiter ;
 ```
+### Resultado:
 ![alunos_cursos](alunos_cursos.png)
 
 ### Mostrar alunos,cursos e professores de cada curso
@@ -96,8 +97,6 @@ group_concat(Cursos.nome) as 'Cursos',
 -- Seleciona uma lista de nomes de professores
 
 group_concat(Professores.nome) as 'Docentes'
-
-
 
 -- Seleciona os dados do aluno da tabela `Alunos`.
 
@@ -132,5 +131,5 @@ GROUP BY Alunos.ra, Alunos.nome, Alunos.sobre_nome;
 end $
 delimiter ;
 ```
-
+### resultado:
 ![alunos_cursos_prof](alunos_cursos_prof.png)
