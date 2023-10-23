@@ -133,3 +133,8 @@ delimiter ;
 ```
 ### resultado:
 ![alunos_cursos_prof](alunos_cursos_prof.png)
+
+# Código
+
+!(Código)[universidade.sql]
+![image](https://github.com/WeberBar/procedure-stored-sql/assets/113800165/5d545d1d-ca55-4879-b47d-73a63e36b796)
