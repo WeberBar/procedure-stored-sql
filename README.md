@@ -71,3 +71,66 @@ group by Alunos.ra, Alunos.nome, Alunos.sobre_nome;
  delimiter ;
 ```
 ![alunos_cursos](alunos_cursos.png)
+
+### Mostrar alunos,cursos e professores de cada curso
+```sql
+ -- cria um metodo que mostra todos os alunos, seus cursos e os´professores que lencionam os cursos
+ delimiter $
+create procedure Alunos_cursos_professores  ()
+begin
+-- Seleciona os seguintes campos da tabela `Alunos`:
+-- [] RA
+-- [] Nome
+-- [] Sobre_nome
+-- [] E-mail
+
+select Alunos.ra as 'ra',
+Alunos.nome as 'Alunos',
+Alunos.sobre_nome as 'Sobre_nome',
+Alunos.email as 'E-mail',
+
+-- Seleciona uma lista de nomes de cursos
+
+group_concat(Cursos.nome) as 'Cursos',
+
+-- Seleciona uma lista de nomes de professores
+
+group_concat(Professores.nome) as 'Docentes'
+
+
+
+-- Seleciona os dados do aluno da tabela `Alunos`.
+
+FROM Alunos
+
+-- Relaciona a tabela `Alunos` com a tabela `Alunos_has_cursos`.
+-- A condição de junção é que o `id` da tabela `Alunos` seja igual ao `Alunos_id` da tabela `Alunos_has_cursos`.
+
+JOIN Alunos_has_cursos
+ON Alunos.id = Alunos_has_cursos.Alunos_id
+
+-- Relaciona a tabela `Alunos_has_cursos` com a tabela `Cursos`.
+-- A condição de junção é que o `idCursos` da tabela `Alunos_has_cursos` seja igual ao `idCursos` da tabela `Cursos`.
+
+JOIN Cursos
+ON Cursos.idCursos = Alunos_has_cursos.Cursos_idCursos
+
+-- Relaciona a tabela `Cursos` com a tabela `Cursos_has_professores`.
+-- A condição de junção é que o `idCursos` da tabela `Cursos` seja igual ao `Cursos_idCursos` da tabela `Cursos_has_professores`.
+
+JOIN Cursos_has_professores
+ON Cursos.idCursos = Cursos_has_professores.Cursos_idCursos
+
+-- Relaciona a tabela `Cursos_has_professores` com a tabela `Professores`.
+-- A condição de junção é que o `id` da tabela `Professores` seja igual ao `Professores_id` da tabela `Cursos_has_professores`.
+
+JOIN Professores
+ON Professores.id = Cursos_has_professores.Professores_id
+
+GROUP BY Alunos.ra, Alunos.nome, Alunos.sobre_nome;
+
+end $
+delimiter ;
+```
+
+![alunos_cursos_prof](alunos_cursos_prof.png)
