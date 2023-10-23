@@ -137,4 +137,4 @@ delimiter ;
 # Código
 
 !(Código)[universidade.sql]
-![image(1)](https://github.com/WeberBar/procedure-stored-sql/assets/113800165/5d545d1d-ca55-4879-b47d-73a63e36b796)
+
