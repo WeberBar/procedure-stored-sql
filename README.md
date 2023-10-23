@@ -1,5 +1,3 @@
-![image](https://github.com/WeberBar/procedure-stored-sql/assets/113800165/465a6419-ef5a-4f32-85e9-f3b84e8987a6)# procedure-stored-sql
-
 Crie um banco de dados para armazenar alunos, cursos e professores de uma
 universidade;
 Faça a modelagem do banco e identifique as entidades, seus atributos e relacionamentos
