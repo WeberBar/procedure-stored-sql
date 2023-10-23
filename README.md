@@ -30,7 +30,7 @@ BEGIN
   -- Se o número de alunos for maior que 0, adiciona o número do RA ao nome completo para criar o email
   set parte_ra = substring(ra,4, 6);
   IF contador > 0 THEN
-    SET email = CONCAT(nome_completo, parte_ra, '@facens.br');  -- Lembre-se de definir ra!
+    SET email = CONCAT(nome_completo, parte_ra, '@facens.br'); 
   ELSE
     SET email = CONCAT(nome_completo, '@facens.br');
   END IF;
