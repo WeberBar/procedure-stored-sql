@@ -38,4 +38,6 @@ END$
 DELIMITER ;
 ```
 ![inserindo_alunos](inserir_alunos.png)
+
+### Resultado:
 ![alunos](alunos.png)
